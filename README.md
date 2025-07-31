@@ -5,8 +5,8 @@ Este é um sistema de sorteio para um amigo secreto, desenvolvido durante o prog
 ---
 ### :dart: Funcionalidades
 
-* **Adicionar o nome das pessoas um lista.
-* **Realizar o sorteio pegando um nome de forma aleatória da lista.
+* Adicionar o nome das pessoas um lista.
+* Realizar o sorteio pegando um nome de forma aleatória da lista.
 ---
 ### :computer: Tecnologias Utilizadas
 
