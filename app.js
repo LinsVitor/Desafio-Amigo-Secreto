@@ -18,9 +18,9 @@ function mostrarNome() {
     let lista = document.getElementById("listaAmigos");
     lista.innerHTML = "";
     
-    for (nome in listaNomes) {
+    for (nome of listaNomes) { // Alterado o for...in pelo for...of, for...in retorna o valor do índice.
         let novaLista = document.createElement("li")
-        novaLista.textContent = listaNomes[nome];
+        novaLista.textContent = nome;
         lista.appendChild(novaLista);
     }
 }
