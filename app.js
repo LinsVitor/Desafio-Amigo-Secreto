@@ -31,14 +31,22 @@ function mostrarNomes() {
 
 function sortear() {
     let indiceAleatorio = Math.floor(Math.random() * listaNomes.length);
-    document.getElementById("areaNome").hidden=true;
-    document.getElementById("botaoEnviar").hidden=true
-    document.getElementById("nomeSorteado").hidden=false;
+    document.getElementById("botaoExcluir").hidden=true;
+    document.getElementById("areaExcluir").hidden=true;
+    document.getElementById("botaoEditar").hidden=true;
+    document.getElementById("areaEditar").hidden=true;
     let vencedor = document.getElementById("nomeSorteado");
     if (listaNomes.length > 0){
+        document.getElementById("areaNome").hidden=true;
+        document.getElementById("botaoEnviar").hidden=true;
+        document.getElementById("nomeSorteado").hidden=false;
         vencedor.innerHTML = listaNomes[indiceAleatorio];
         listaNomes.pop(indiceAleatorio);
         mostrarNomes();
+    }else {
+        document.getElementById("areaNome").hidden=false;
+        document.getElementById("botaoEnviar").hidden=false;
+        alert("Não tem nome para sortear");
     }
 }
 
@@ -56,6 +64,8 @@ function excluir() {
     document.getElementById("areaNome").hidden=true;
     document.getElementById("botaoEnviar").hidden=true;
     document.getElementById("nomeSorteado").hidden=true;
+    document.getElementById("botaoEditar").hidden=true;
+    document.getElementById("areaEditar").hidden=true;
     document.getElementById("botaoExcluir").hidden=false;
     document.getElementById("areaExcluir").hidden=false;
 }
@@ -82,6 +92,8 @@ function editar() {
     document.getElementById("areaNome").hidden=true;
     document.getElementById("botaoEnviar").hidden=true;
     document.getElementById("nomeSorteado").hidden=true;
+    document.getElementById("botaoExcluir").hidden=true;
+    document.getElementById("areaExcluir").hidden=true;
     document.getElementById("botaoEditar").hidden=false;
     document.getElementById("areaEditar").hidden=false;
 }
