@@ -41,7 +41,7 @@ function sortear() {
         document.getElementById("botaoEnviar").hidden=true;
         document.getElementById("nomeSorteado").hidden=false;
         vencedor.innerHTML = listaNomes[indiceAleatorio];
-listaNomes.splice(indiceAleatorio, 1);
+        listaNomes.splice(indiceAleatorio, 1);
         mostrarNomes();
     }else {
         alert("Não tem nome para sortear");
