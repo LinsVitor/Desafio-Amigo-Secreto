@@ -30,13 +30,13 @@ function mostrarNomes() {
 }
 
 function sortear() {
-    let indiceAleatorio = Math.floor(Math.random() * listaNomes.length);
     document.getElementById("botaoExcluir").hidden=true;
     document.getElementById("areaExcluir").hidden=true;
     document.getElementById("botaoEditar").hidden=true;
     document.getElementById("areaEditar").hidden=true;
-    let vencedor = document.getElementById("nomeSorteado");
     if (listaNomes.length > 0){
+        let indiceAleatorio = Math.floor(Math.random() * listaNomes.length);
+        let vencedor = document.getElementById("nomeSorteado");
         document.getElementById("areaNome").hidden=true;
         document.getElementById("botaoEnviar").hidden=true;
         document.getElementById("nomeSorteado").hidden=false;
@@ -44,9 +44,10 @@ function sortear() {
         listaNomes.pop(indiceAleatorio);
         mostrarNomes();
     }else {
+        alert("Não tem nome para sortear");
         document.getElementById("areaNome").hidden=false;
         document.getElementById("botaoEnviar").hidden=false;
-        alert("Não tem nome para sortear");
+        document.getElementById("nomeSorteado").hidden=true;
     }
 }
 
