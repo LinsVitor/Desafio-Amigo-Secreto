@@ -4,38 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;700;900&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
     <title>Amigo Secreto</title>
 </head>
-
 <body>
-    <main class="main-content">
-        <header class="header-banner">
-            <h1 class="main-title">Amigo Secreto</h1>
-            <img src="assets/amigo-secreto.png" alt="Imagem representativa de amigo secreto">
-        </header>
-        
-        <section class="input-section">
-            <h2 class="section-title">Digite o nome dos seus amigos</h2>
-            <div class="input-wrapper">
-                <input type="text" id="amigo" class="input-name" placeholder="Digite um nome">
-                <button class="button-add" onclick="adicionarAmigo()">Adicionar</button>
+    <header>
+    </header>
+    <main>
+        <section class="container">
+            <img class="imagem" src="assets/amigo-secreto.png" alt="Imagem de duas pessoas segurando um presente">
+            <div class="container_input">
+                <p class="container_input_nome" id="nomeSorteado" hidden></p>
+                <input id="areaNome" class="container_input_texto" type="text" placeholder="Digite um nome: " maxlength="52">
+                <button id="botaoEnviar" class="container_botao" onclick="adicionarNome()">Enviar</button>
+                <input id="areaExcluir" class="container_input_texto" type="text" placeholder="Digite o nome para remover da lista: " maxlength="52" hidden>
+                <button id="botaoExcluir" class="container_botao" onclick="removerNome()" hidden>Excluir</button>
+                <input id="areaEditar" class="container_input_texto" type="text" placeholder="Digite o nome para editar: " maxlength="52" hidden>
+                <button id="botaoEditar" class="container_botao" onclick="editarNome()" hidden>Editar</button>
             </div>
-           
-            <ul id="listaAmigos" class="name-list" aria-labelledby="listaAmigos" role="list"></ul>
-            <ul id="resultado" class="result-list" aria-live="polite"></ul>
-
-            <div class="button-container">
-                <button class="button-draw" onclick="sortearAmigo()" aria-label="Sortear amigo secreto">
-                    <img src="assets/play_circle_outline.png" alt="Ícone para sortear">
-                    Sortear amigo
-                </button>
+            <ol class="container_nomes_lista" id="listaNomes"></ol>
+            <div class="container_botoes">
+                <button class="container_botoes_botao" onclick="sortear()">Sortear</button>
+                <button class="container_botoes_botao" onclick="editar()">Editar</button>
+                <button class="container_botoes_botao" onclick="excluir()">Excluir</button>
             </div>
         </section>
     </main>
-
+    <footer></footer>
     <script src="app.js" defer></script>
 </body>
 </html>
