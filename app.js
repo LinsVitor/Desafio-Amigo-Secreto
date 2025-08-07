@@ -40,7 +40,7 @@ function sortear() {
         document.getElementById("areaNome").hidden=true;
         document.getElementById("botaoEnviar").hidden=true;
         document.getElementById("nomeSorteado").hidden=false;
-        vencedor.innerHTML = listaNomes.pop(indiceAleatorio);
+        vencedor.innerHTML = listaNomes.splice(indiceAleatirio, 1);
         mostrarNomes();
     }else {
         alert("Não tem nome para sortear");
