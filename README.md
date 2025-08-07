@@ -30,7 +30,7 @@ Para usar o sorteador de amigo secreto, siga estes passos simples:
 
 1.  Clone o repositório para a sua máquina:
     ```bash
-    git clone [https://github.com/LinsVitor/Desafio-Amigo-Secreto.git](https://github.com/LinsVitor/Desafio-Amigo-Secreto.git)
+    git clone https://github.com/LinsVitor/Desafio-Amigo-Secreto.git
     ```
 2.  Abra o arquivo `index.html` em seu navegador de preferência.
 
