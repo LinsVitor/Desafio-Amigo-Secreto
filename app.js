@@ -1,8 +1,16 @@
 let listaNomes = [];
 
-const botao = document.getElementById("botaoEnviar");
-botao.addEventListener("click", adicionarNome);
-document.addEventListener("keydown", function(event) {if (event.key === "Enter") {adicionarNome();}});
+function configurarEnter(idElemento, funcaoParaExecutar) {
+    const campoInput = document.getElementById(idElemento);
+    if (campoInput) {
+        campoInput.addEventListener("keydown", function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                funcaoParaExecutar();
+            }
+        });
+    }
+}
 
 function adicionarNome() {
     let nome = document.getElementById("areaNome").value;
@@ -64,13 +72,17 @@ function limparTexto() {
 }
 
 function excluir() {
-    document.getElementById("areaNome").hidden=true;
-    document.getElementById("botaoEnviar").hidden=true;
-    document.getElementById("nomeSorteado").hidden=true;
-    document.getElementById("botaoEditar").hidden=true;
-    document.getElementById("areaEditar").hidden=true;
-    document.getElementById("botaoExcluir").hidden=false;
-    document.getElementById("areaExcluir").hidden=false;
+    if (listaNomes.length == 0) {
+        alert("Não tem nomes na lista.");
+    }else {
+        document.getElementById("areaNome").hidden=true;
+        document.getElementById("botaoEnviar").hidden=true;
+        document.getElementById("nomeSorteado").hidden=true;
+        document.getElementById("botaoEditar").hidden=true;
+        document.getElementById("areaEditar").hidden=true;
+        document.getElementById("botaoExcluir").hidden=false;
+        document.getElementById("areaExcluir").hidden=false;
+    }
 }
 
 function removerNome() {
@@ -81,24 +93,25 @@ function removerNome() {
         listaNomes.pop(nome);
         mostrarNomes();
         limpar.value = "";
-        document.getElementById("areaNome").hidden=false;
-        document.getElementById("botaoEnviar").hidden=false;
-        document.getElementById("nomeSorteado").hidden=true;
-        document.getElementById("botaoExcluir").hidden=true;
-        document.getElementById("areaExcluir").hidden=true;
+        telaInicial();
     } else {
         alert("Nome não está na lista");
+        telaInicial();
     }
 }
 
 function editar() {
-    document.getElementById("areaNome").hidden=true;
-    document.getElementById("botaoEnviar").hidden=true;
-    document.getElementById("nomeSorteado").hidden=true;
-    document.getElementById("botaoExcluir").hidden=true;
-    document.getElementById("areaExcluir").hidden=true;
-    document.getElementById("botaoEditar").hidden=false;
-    document.getElementById("areaEditar").hidden=false;
+    if (listaNomes.length == 0) {
+        alert("Não tem nomes na lista.");
+    }else {
+        document.getElementById("areaNome").hidden=true;
+        document.getElementById("botaoEnviar").hidden=true;
+        document.getElementById("nomeSorteado").hidden=true;
+        document.getElementById("botaoExcluir").hidden=true;
+        document.getElementById("areaExcluir").hidden=true;
+        document.getElementById("botaoEditar").hidden=false;
+        document.getElementById("areaEditar").hidden=false;
+    }
 }
 
 function editarNome() {
@@ -121,11 +134,21 @@ function editarNome() {
             listaNomes.push(nomeLimpo);
             editarNome.value = "";
             mostrarNomes();
-            document.getElementById("areaNome").hidden=false;
-            document.getElementById("botaoEnviar").hidden=false;
-            document.getElementById("nomeSorteado").hidden=true;
-            document.getElementById("botaoEditar").hidden=true;
-            document.getElementById("areaEditar").hidden=true;
+            telaInicial();
         }
     }
 }
+
+function telaInicial(params) {
+    document.getElementById("areaNome").hidden=false;
+    document.getElementById("botaoEnviar").hidden=false;
+    document.getElementById("nomeSorteado").hidden=true;
+    document.getElementById("botaoExcluir").hidden=true;
+    document.getElementById("areaExcluir").hidden=true;
+    document.getElementById("botaoEditar").hidden=true;
+    document.getElementById("areaEditar").hidden=true;
+}
+
+configurarEnter("areaNome", adicionarNome);
+configurarEnter("areaExcluir", removerNome);
+configurarEnter("areaEditar", editarNome);
