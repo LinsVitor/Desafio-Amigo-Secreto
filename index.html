@@ -21,12 +21,13 @@
                 <input id="areaEditar" class="container_input_texto" type="text" placeholder="Digite o nome para editar: " maxlength="52" hidden>
                 <button id="botaoEditar" class="container_botao" onclick="editarNome()" hidden>Editar</button>
             </div>
-            <ol class="container_nomes_lista" id="listaNomes"></ol>
             <div class="container_botoes">
                 <button class="container_botoes_botao" onclick="sortear()">Sortear</button>
+                <button class="container_botoes_botao" onclick="sortearLista()">Pares</button>
                 <button class="container_botoes_botao" onclick="editar()">Editar</button>
                 <button class="container_botoes_botao" onclick="excluir()">Excluir</button>
             </div>
+            <ol class="container_nomes_lista" id="listaNomes"></ol>
         </section>
     </main>
     <footer></footer>
