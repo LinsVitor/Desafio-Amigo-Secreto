@@ -1,8 +1,11 @@
 let listaNomes = [];
 
+const botao = document.getElementById("botaoEnviar");
+botao.addEventListener("click", adicionarNome);
+document.addEventListener("keydown", function(event) {if (event.key === "Enter") {adicionarNome();}});
+
 function adicionarNome() {
     let nome = document.getElementById("areaNome").value;
-    
     if (nome.trim() === "") {
         alert("Por favor insira um nome valido.");
     }else {
@@ -15,7 +18,6 @@ function adicionarNome() {
             limparTexto();
         }
     }
-
 }
 
 function mostrarNomes() {
