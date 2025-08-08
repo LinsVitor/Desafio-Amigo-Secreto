@@ -22,17 +22,17 @@ function adicionarNome() {
         }else {
             listaNomes.push(formatarNome(nome));
             console.log(listaNomes);
-            mostrarNomes();
+            mostrarNomes(listaNomes);
             limparTexto();
         }
     }
 }
 
-function mostrarNomes() {
+function mostrarNomes(nomes) {
     let lista = document.getElementById("listaNomes");
     lista.innerHTML = "";
 
-    for (nome of listaNomes) {
+    for (nome of nomes) {
         let novaLista = document.createElement("li");
         novaLista.textContent = nome;
         lista.appendChild(novaLista);
@@ -52,12 +52,32 @@ function sortear() {
         document.getElementById("nomeSorteado").hidden=false;
         vencedor.innerHTML = listaNomes[indiceAleatorio];
         listaNomes.splice(indiceAleatorio, 1);
-        mostrarNomes();
+        mostrarNomes(listaNomes);
     }else {
         alert("Não tem nome para sortear");
         document.getElementById("areaNome").hidden=false;
         document.getElementById("botaoEnviar").hidden=false;
         document.getElementById("nomeSorteado").hidden=true;
+    }
+}
+
+function sortearLista() {
+    let listaSorteada = [];
+
+    if (listaNomes.length < 4) {
+        alert("Precisa ter pelo menos 4 nomes na lista.");
+    }else{
+        let tempLista = [];
+        while (listaNomes.length != 0) {
+            let indiceAleatorio = Math.floor(Math.random() * listaNomes.length);
+            tempLista.push(listaNomes[indiceAleatorio]);
+            listaNomes.splice(indiceAleatorio, 1);
+            if (tempLista.length == 2) {
+                listaSorteada.push(tempLista.join(" E "));
+                tempLista = [];
+            }
+        }
+        mostrarNomes(listaSorteada);
     }
 }
 
