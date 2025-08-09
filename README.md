@@ -40,7 +40,7 @@ Para usar o sorteador de amigo secreto, siga estes passos simples:
 
 O projeto continua em evolução! As seguintes melhorias estão planejadas:
 
-- [ ] Implementar uma funcionalidade para registrar quem tirou quem, evitando sorteios duplicados.
+- [x] Implementar uma funcionalidade para registrar quem tirou quem, evitando sorteios duplicados.
 - [ ] Adicionar uma opção para importar nomes de um arquivo.
 
 
