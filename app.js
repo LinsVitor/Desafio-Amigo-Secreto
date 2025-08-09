@@ -32,10 +32,14 @@ function mostrarNomes(nomes) {
     let lista = document.getElementById("listaNomes");
     lista.innerHTML = "";
 
-    for (nome of nomes) {
-        let novaLista = document.createElement("li");
-        novaLista.textContent = nome;
-        lista.appendChild(novaLista);
+    if (nomes.length != 0) {
+        for (nome of nomes) {
+            let novaLista = document.createElement("li");
+            novaLista.textContent = nome;
+            lista.appendChild(novaLista);
+        }
+    }else{
+        lista.innerHTML = "";
     }
 }
 
@@ -66,6 +70,7 @@ function sortearLista() {
 
     if (listaNomes.length < 4) {
         alert("Precisa ter pelo menos 4 nomes na lista.");
+        mostrarNomes(listaSorteada);
     }else{
         let tempLista = [];
         while (listaNomes.length != 0) {
@@ -77,6 +82,11 @@ function sortearLista() {
                 tempLista = [];
             }
         }
+        let campoInput = document.getElementById("nomeSorteado");
+        document.getElementById("areaNome").hidden=true;
+        document.getElementById("botaoEnviar").hidden=true;
+        document.getElementById("nomeSorteado").hidden=false;
+        campoInput.innerHTML = "Pares Sorteados";
         mostrarNomes(listaSorteada);
     }
 }
@@ -167,6 +177,13 @@ function telaInicial(params) {
     document.getElementById("areaExcluir").hidden=true;
     document.getElementById("botaoEditar").hidden=true;
     document.getElementById("areaEditar").hidden=true;
+}
+
+function reset() {
+    listaNomes = [];
+    listaSorteada = [];
+    telaInicial();
+    mostrarNomes(listaNomes);
 }
 
 configurarEnter("areaNome", adicionarNome);
