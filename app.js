@@ -21,7 +21,6 @@ function adicionarNome() {
             alert("Nome já na lista");
         }else {
             listaNomes.push(formatarNome(nome));
-            console.log(listaNomes);
             mostrarNomes(listaNomes);
             limparTexto();
         }
@@ -121,7 +120,7 @@ function removerNome() {
     let nome = formatarNome(nomeRemover);
     if (listaNomes.includes(nome)) {
         listaNomes.pop(nome);
-        mostrarNomes();
+        mostrarNomes(listaNomes);
         limpar.value = "";
         telaInicial();
     } else {
@@ -155,7 +154,7 @@ function editarNome() {
             listaNomes.pop(nomeLimpo);
             editarNome.placeholder = "Insira o nome corrigido: "
             editarNome.value = "";
-            mostrarNomes();
+            mostrarNomes(listaNomes);
         }
     }else {
         if (nome.trim() === "") {
@@ -163,7 +162,7 @@ function editarNome() {
         }else {
             listaNomes.push(nomeLimpo);
             editarNome.value = "";
-            mostrarNomes();
+            mostrarNomes(listaNomes);
             telaInicial();
         }
     }
